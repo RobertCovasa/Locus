@@ -84,13 +84,20 @@ body {
 .controls {
     margin-top: 2rem;
     display: flex;
-    gap: 2rem;
+    flex-direction: column; /* Stack toggle above buttons */
+    align-items: center;
+    gap: 1rem;
     opacity: 0;
     transition: opacity 0.3s ease;
 }
 
 body:hover .controls {
     opacity: 1;
+}
+
+.buttons {
+    display: flex;
+    gap: 2rem;
 }
 
 button {
@@ -108,6 +115,45 @@ button {
 button:hover {
     opacity: 1;
     text-decoration: underline;
+}
+
+/* Auto-Switch Toggle */
+#auto-switch-label {
+    cursor: pointer;
+    font-size: 0.9rem;
+    opacity: 0.5;
+    transition: opacity 0.2s;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#auto-switch-label:hover {
+    opacity: 1;
+}
+
+#auto-switch {
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    border: 1px solid currentColor;
+    border-radius: 2px;
+    display: grid;
+    place-content: center;
+}
+
+#auto-switch::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    transform: scale(0);
+    transition: 0.1s transform ease-in-out;
+    background-color: currentColor;
+}
+
+#auto-switch:checked::before {
+    transform: scale(1);
 }
 
 /* State Classes */

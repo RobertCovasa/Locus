@@ -2,7 +2,7 @@
 
 > Define the center of your attention.
 
-![License](https://img.shields.io/badge/license-MIT-blue.svg) ![Size](https://img.shields.io/badge/size-20kb-green.svg) ![Dependencies](https://img.shields.io/badge/dependencies-none-lightgrey.svg)
+![License](https://img.shields.io/badge/license-MIT-blue.svg) ![Size](https://img.shields.io/badge/size-21kb-green.svg) ![Dependencies](https://img.shields.io/badge/dependencies-none-lightgrey.svg)
 
 **Locus** is a minimalistic, context-aware focus timer designed for deep work sessions. It strips away gamification and clutter, leaving only the essential variables: Time and Intent.
 
@@ -15,6 +15,7 @@ This app was named **Locus** to represent the singular point where your attentio
 ## ✨ Features
 
 * **Intent-First Design:** An input field prompts you to explicitly define "WHAT IS YOUR FOCUS?" before the timer begins.
+* **Auto-Flow Mode:** A toggleable checkbox to enable continuous sessions. When active, the timer automatically switches and starts the next phase (Focus → Break → Focus) without manual intervention.
 * **Context-Aware Environment:**
     * **Focus Mode:** Deep charcoal background (`#1a1a1a`) for high-contrast concentration.
     * **Break Mode:** Soothing light cyan (`#e0f2f1`) signals a physiological break for your eyes and mind.

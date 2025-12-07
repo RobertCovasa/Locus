@@ -12,6 +12,7 @@ let currentMode = 'focus';
 let timerInterval = null;
 let lastTime = 0;
 let sessionsCompleted = 0; // Tracks sets of 4
+let isAutoSwitch = false;  // New State for Auto-Flow
 
 // --- ELEMENTS ---
 const timerDisplay = document.getElementById('timer');
@@ -19,6 +20,7 @@ const intentInput = document.getElementById('intent-input');
 const dotsContainer = document.getElementById('dots-container');
 const body = document.body;
 const faviconLink = document.getElementById('favicon');
+const autoSwitchCheckbox = document.getElementById('auto-switch');
 
 // --- CORE FUNCTIONS ---
 
@@ -87,11 +89,9 @@ function switchMode(mode) {
     
     if (mode === 'focus') {
         body.classList.remove('break-mode');
-        intentInput.style.display = 'block'; // Show input in focus
+        intentInput.style.display = 'block'; 
     } else {
         body.classList.add('break-mode');
-        // Optional: Hide input during break to reduce clutter
-        // intentInput.style.display = 'none'; 
     }
     
     updateDisplay();
@@ -101,6 +101,7 @@ function handleTimerComplete() {
     playSound();
     pauseTimer();
 
+    // Determine next mode
     if (currentMode === 'focus') {
         sessionsCompleted++;
         if (sessionsCompleted >= 4) {
@@ -114,6 +115,11 @@ function handleTimerComplete() {
         switchMode('focus');
     }
     updateDots();
+
+    // FEATURE: Auto-Switch Logic
+    if (isAutoSwitch) {
+        startTimer();
+    }
 }
 
 function playSound() {
@@ -153,7 +159,6 @@ function tick() {
 function startTimer() {
     if (isRunning) return;
     
-    // FEATURE: Blur input on start so typing 'r' doesn't reset
     intentInput.blur();
     
     isRunning = true;
@@ -185,12 +190,16 @@ document.getElementById('btn-short').onclick = () => switchMode('short');
 document.getElementById('btn-long').onclick = () => switchMode('long');
 document.getElementById('btn-reset').onclick = () => resetTimer();
 
-// 2. Click Timer to Start/Stop
+// 2. Auto-Switch Toggle
+autoSwitchCheckbox.addEventListener('change', (e) => {
+    isAutoSwitch = e.target.checked;
+});
+
+// 3. Click Timer to Start/Stop
 timerDisplay.onclick = toggleTimer;
 
-// 3. Keyboard Shortcuts
+// 4. Keyboard Shortcuts
 document.addEventListener('keydown', (e) => {
-    // If user is typing in the input box, ignore shortcuts (except Enter)
     if (document.activeElement === intentInput) {
         if (e.key === 'Enter') {
             startTimer();

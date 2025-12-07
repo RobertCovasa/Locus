@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Focus</title>
+    <title>Locus</title>
     
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="theme-color" content="#1a1a1a">
-    <link rel="icon" id="favicon" href="data:,"> <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="icon" id="favicon" href="data:,"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     
@@ -28,10 +29,17 @@
     </div>
 
     <div class="controls">
-        <button id="btn-focus">Focus</button>
-        <button id="btn-short">Short</button>
-        <button id="btn-long">Long</button>
-        <button id="btn-reset">Reset</button>
+        <label id="auto-switch-label">
+            <input type="checkbox" id="auto-switch"> 
+            [ Auto-Flow ]
+        </label>
+        
+        <div class="buttons">
+            <button id="btn-focus">Focus</button>
+            <button id="btn-short">Short</button>
+            <button id="btn-long">Long</button>
+            <button id="btn-reset">Reset</button>
+        </div>
     </div>
 
     <script src="script.js"></script>

@@ -31,7 +31,7 @@ Locus is built with zero dependencies. It requires no build step, no npm install
 
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/RobertCovasa/Locus.git](https://github.com/RobertCovasa/Locus.git)
+    git clone https://github.com/RobertCovasa/Locus.git
     ```
 2.  **Run the app:**
     Simply open `index.html` in your preferred web browser.
